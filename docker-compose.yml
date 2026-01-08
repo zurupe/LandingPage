@@ -1,0 +1,30 @@
+name: landing-page
+services:
+  landing-page:
+    image: zurupe/repo-landingpage:v6
+    ports:
+      - "8084:80"
+    restart: always
+    x-casaos:
+      envs: []
+      ports:
+        - container: "80"
+          description:
+            en_us: Web UI
+      volumes: []
+
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+    - arm
+  main: landing-page
+  description:
+    en_us: Personal Landing Page built with Angular
+  tag_line:
+    en_us: My Portfolio
+  author: Pablo
+  category: Web
+  title:
+    en_us: Landing Page
+  icon: https://cdn-icons-png.flaticon.com/512/3670/3670157.png

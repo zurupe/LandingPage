@@ -1,0 +1,148 @@
+/* Estilos generales para la sección de proyectos */
+.seccion-proyectos {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.titulo-seccion::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--secondary-color);
+  margin: 0.5rem auto;
+  border-radius: 2px;
+}
+
+.contenedor-proyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Estilos para cada tarjeta de proyecto */
+.tarjeta-proyecto {
+  background: var(--surface-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-proyecto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-proyecto {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.imagen-proyecto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tarjeta-proyecto:hover .imagen-proyecto img {
+  transform: scale(1.05);
+}
+
+.contenido-proyecto {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenido-proyecto h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.descripcion-proyecto {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.etiqueta-tecnologia {
+  background: var(--secondary-color);
+  color: var(--white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Media Queries para responsive design */
+
+/* Tablets (≥600px) */
+@media (min-width: 600px) {
+  .tarjeta-proyecto {
+    flex-direction: row;
+    height: 250px;
+  }
+
+  .imagen-proyecto {
+    height: 100%;
+    flex: 0 0 40%;
+  }
+
+  .contenido-proyecto {
+    flex: 0 0 60%;
+  }
+}
+
+/* Desktop (≥900px) */
+@media (min-width: 900px) {
+  .seccion-proyectos {
+    padding: 3rem 2rem;
+  }
+
+  .tarjeta-proyecto {
+    height: 280px;
+  }
+}
+
+/* Ajustes para móviles pequeños (≤400px) */
+@media (max-width: 400px) {
+  .seccion-proyectos {
+    text-align: center;
+  }
+
+  .titulo-seccion {
+    font-size: 1.7rem;
+  }
+
+  .contenido-proyecto h3 {
+    font-size: 1.3rem;
+  }
+
+  .descripcion-proyecto {
+    font-size: 0.9rem;
+  }
+}

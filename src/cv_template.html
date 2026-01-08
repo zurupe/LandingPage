@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Pablo Zurita</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary: #1B4332;
+            --text: #2D3436;
+            --secondary: #52B788;
+            --light-bg: #F8F9FA;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 210mm;
+            /* A4 width */
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            @page {
+                margin: 0.5cm;
+                size: A4;
+            }
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--secondary);
+            padding-left: 10px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .job,
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .company,
+        .institution {
+            color: #555;
+            font-style: italic;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        ul {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-item h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            background: var(--light-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Pablo Esteban Zurita Rosero</h1>
+        <div class="title">Ingeniero de Software / Estudiante</div>
+        <div class="contact-info">
+            <span>📧 pablozurita.jr@outlook.com</span>
+            <span>📱 +593 96 420 5301</span>
+            <span>📍 Ecuador</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Perfil Profesional</h2>
+        <p>
+            Estudiante de Ingeniería de Software con sólida formación en desarrollo de aplicaciones, bases de datos y
+            arquitectura de computadoras.
+            Apasionado por la integración entre hardware y software, el desarrollo de herramientas de alto rendimiento y
+            la creación de soluciones innovadoras.
+            Me caracterizo por mi adaptabilidad, aprendizaje continuo y enfoque en la eficiencia técnica.
+        </p>
+    </section>
+
+    <section>
+        <h2>Formación Académica</h2>
+        <div class="education-item">
+            <div class="job-title">Ingeniería de Software</div>
+            <div class="institution">Universidad de las Fuerzas Armadas (ESPE) | En curso</div>
+            <p>Formación especializada en ciclo de vida del software, arquitectura de sistemas y gestión de proyectos
+                tecnológicos.</p>
+        </div>
+        <div class="education-item">
+            <div class="job-title">Educación Secundaria</div>
+            <div class="institution">Unidad Educativa Lev Vygotsky</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div>
+                <div class="skill-category">Lenguajes de Programación</div>
+                <ul>
+                    <li>C# / .NET</li>
+                    <li>JavaScript / TypeScript</li>
+                    <li>C++</li>
+                    <li>HTML5 / CSS3</li>
+                </ul>
+            </div>
+            <div>
+                <div class="skill-category">Frameworks y Herramientas</div>
+                <ul>
+                    <li>Angular (Web)</li>
+                    <li>Windows Forms (Desktop)</li>
+                    <li>Qt Framework</li>
+                    <li>Git / GitHub</li>
+                </ul>
+            </div>
+            <div>
+                <div class="skill-category">Áreas de Interés</div>
+                <ul>
+                    <li>Arquitectura de Hardware</li>
+                    <li>Desarrollo Full Stack</li>
+                    <li>Inteligencia Artificial</li>
+                </ul>
+            </div>
+            <div>
+                <div class="skill-category">Idiomas</div>
+                <ul>
+                    <li>Español (Nativo)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Proyectos Destacados</h2>
+        <div class="projects-grid">
+            <div class="project-item">
+                <h3>Echospira</h3>
+                <p>Reproductor de audio innovador con visualización 3D en tiempo real. Utiliza algoritmos de
+                    procesamiento de señales para generar estructuras geométricas que reaccionan a la música.</p>
+                <div class="tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">.NET</span>
+                    <span class="tag">Windows Forms</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>EcoNoMily</h3>
+                <p>Aplicación web para la gestión de economía familiar. Permite el seguimiento de ingresos y gastos con
+                    reportes mensuales para optimizar la salud financiera del hogar.</p>
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>Minecraft Tools (En desarrollo)</h3>
+                <p>Suite de herramientas de optimización para el videojuego Minecraft, orientada a mejorar el
+                    rendimiento y la experiencia de usuario mediante ajustes de bajo nivel.</p>
+                <div class="tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Qt</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

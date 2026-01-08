@@ -1,0 +1,17 @@
+<header>
+  <nav>
+    <h1 class="titulo">ZhuruServices</h1>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/sobre-mi">Sobre Mí</a></li>
+      <li><a href="/proyectos">Proyectos</a></li>
+      <li><a href="/contactos">Contacto</a></li>
+      <li>
+        <button class="theme-toggle" (click)="toggleTheme()"
+          [attr.aria-label]="themeService.darkMode() ? 'Activar modo claro' : 'Activar modo oscuro'">
+          {{ themeService.darkMode() ? '☀️' : '🌙' }}
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>

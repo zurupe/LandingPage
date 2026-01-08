@@ -1,0 +1,14 @@
+<app-nav />
+
+<div class="layout">
+  @if (showSidebar()) {
+  <app-sidebar />
+  }
+  <main class="contenido">
+    <main [@routeAnimations]="getRouteAnimationData()">
+      <router-outlet></router-outlet>
+    </main>
+  </main>
+</div>
+
+<app-footer />

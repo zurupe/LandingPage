@@ -1,0 +1,23 @@
+<section id="proyectos" class="seccion-proyectos">
+  <h2 class="titulo-seccion">Mis Proyectos Destacados</h2>
+  <div class="contenedor-proyectos">
+    @for (project of projects; track project.title) {
+    <div class="tarjeta-proyecto">
+      <div class="imagen-proyecto">
+        <img [src]="project.image" [alt]="'Captura de ' + project.title" loading="lazy">
+      </div>
+      <div class="contenido-proyecto">
+        <h3>{{ project.title }}</h3>
+        <p class="descripcion-proyecto">
+          {{ project.description }}
+        </p>
+        <div class="tecnologias">
+          @for (tech of project.technologies; track tech) {
+          <span class="etiqueta-tecnologia">{{ tech }}</span>
+          }
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</section>

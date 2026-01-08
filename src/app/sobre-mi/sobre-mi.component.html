@@ -1,0 +1,50 @@
+<section id="sobre-mi">
+  <h2>Sobre mí</h2>
+
+  @for (section of sections(); track section.id) {
+  <article [class]="section.id">
+    <h3>{{ section.icon }} {{ section.title }}</h3>
+
+    @if (section.quote) {
+    <p><em>"{{ section.quote }}"</em></p>
+    }
+
+    @if (section.isCustom) {
+    <p [innerHTML]="section.content"></p>
+    } @else {
+    <p>{{ section.content }}</p>
+    }
+
+    @if (section.items) {
+    <ul>
+      @for (item of section.items; track item) {
+      <li>{{ item }}</li>
+      }
+    </ul>
+    }
+
+    @if (section.subsections) {
+    @for (subsection of section.subsections; track subsection.title) {
+    <p><strong>{{ subsection.title }}</strong></p>
+    <ul>
+      @for (item of subsection.items; track item) {
+      <li>{{ item }}</li>
+      }
+    </ul>
+    }
+    }
+  </article>
+  }
+
+  <article class="pasatiempos">
+    <h3>🎯 Intereses Personales</h3>
+    <div class="hobbies-grid">
+      @for (interest of interests; track interest.title) {
+      <div class="hobby">
+        <h4>{{ interest.icon }} {{ interest.title }}</h4>
+        <p>{{ interest.description }}</p>
+      </div>
+      }
+    </div>
+  </article>
+</section>

@@ -1,59 +1,140 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    color-scheme: light dark;
+  color-scheme: light dark;
+
+  /* Forest Green Palette (Light Theme - Default) */
+  --primary-color: #1B4332;
+  /* Deep Forest Green */
+  --secondary-color: #40916C;
+  /* Sage Green */
+  --accent-color: #D8F3DC;
+  /* Pale Green */
+  --text-color: #2D3436;
+  /* Dark Charcoal */
+  --bg-color: #F8F9FA;
+  --surface-color: #FFFFFF;
+  /* Standard Card Background */
+  --white: #FFFFFF;
+  /* Permanent White (text on buttons, etc) */
+
+  /* Brand Backgrounds (Hero/Nav) - Always Dark to support White Text */
+  --brand-bg: #1B4332;
+
+  /* Semantic Colors */
+  --primary-btn: #1B4332;
+  --primary-btn-hover: #081C15;
+  --nav-text: #FFFFFF;
 }
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+  --primary-color: #52B788;
+  /* Light Green for Text Highlights */
+  --secondary-color: #74C69D;
+  --accent-color: #081C15;
+  --text-color: #E0E0E0;
+  /* Light gray text */
+  --bg-color: #121212;
+  /* Deep dark background */
+  --surface-color: #1E1E1E;
+  /* Slightly lighter dark for cards */
+
+  /* Brand BG stays dark in dark mode or gets even darker */
+  --brand-bg: #0B251C;
+
+  --primary-btn: #40916C;
+  /* Ensure buttons remain visible */
+  --primary-btn-hover: #52B788;
+  --nav-text: #FFFFFF;
+  /* Keep Nav text white as Brand BG is dark */
+}
+
 body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
-    background: #F1E3D3 ;
-  }
-  .negrita {
-    font-weight: bold;
-  }
-  .cursiva {
-    font-style: italic;
-  }
-h1,h2, h3 {
-    font-family: 'Playfair Display', serif;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+.cursiva {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
   letter-spacing: 1px;
-  }
-.hero {
-    text-align: center;
-    padding: 2rem;
-    background: #265e4d;
-    color : #fff;
-  }
-  
-  .foto_perfil {
-    width: 150px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-  }
-  .galeria {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px; /* espacio entre imágenes */
-    justify-content: center;
-  }
+}
 
-  .galeria img {
-    height: 150px;
-    flex-shrink: 0; /* evita que las imágenes se encojan */
-  }
+/* Button Animations */
+.btn-animate {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s;
+}
 
-  section {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
-  }
-   
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+.btn-animate:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-animate:active {
+  transform: scale(0.98);
+}
+
+.foto_perfil {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.galeria {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  /* espacio entre imágenes */
+  justify-content: center;
+}
+
+.galeria img {
+  height: 150px;
+  flex-shrink: 0;
+  /* evita que las imágenes se encojan */
+}
+
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Global Form Elements for Dark Mode Support */
+input,
+textarea,
+select {
+  background-color: var(--surface-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Ensure placeholder text is visible but distinct */
+::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
