@@ -7,6 +7,8 @@ export interface Section {
   content: string;
   isCustom?: boolean; // For sections with complex HTML (links, bold, etc.)
   items?: string[]; // For lists like metas or skills
+  quote?: string;
+  subsections?: { title: string; items: string[] }[];
 }
 
 export interface Interest {
@@ -35,7 +37,7 @@ export class SobreMi {
     return age;
   });
 
-  sections = computed(() => [
+  sections = computed<Section[]>(() => [
     {
       id: 'introduccion',
       title: 'Perfil Profesional',
@@ -73,6 +75,7 @@ export class SobreMi {
       id: 'metas',
       title: 'Objetivos Profesionales',
       icon: '🚀',
+      content: '',
       subsections: [
         {
           title: 'A corto plazo:',
