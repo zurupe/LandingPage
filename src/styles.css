@@ -2,51 +2,46 @@
 :root {
   color-scheme: light dark;
 
-  /* Forest Green Palette (Light Theme - Default) */
-  --primary-color: #1B4332;
-  /* Deep Forest Green */
-  --secondary-color: #40916C;
-  /* Sage Green */
-  --accent-color: #D8F3DC;
-  /* Pale Green */
-  --text-color: #2D3436;
-  /* Dark Charcoal */
-  --bg-color: #F8F9FA;
-  --surface-color: #FFFFFF;
-  /* Standard Card Background */
+  /* Premium Monochrome Palette (Light Theme) */
+  --primary-color: #000000;
+  --secondary-color: #444444;
+  --accent-color: #eeeeee;
+  --text-color: #1a1a1a;
+  --bg-color: #ffffff;
+  --surface-color: rgba(0, 0, 0, 0.02);
   --white: #FFFFFF;
-  /* Permanent White (text on buttons, etc) */
 
-  /* Brand Backgrounds (Hero/Nav) - Always Dark to support White Text */
-  --brand-bg: #1B4332;
+  /* Glassmorphism Defaults */
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-blur: blur(30px);
+
+  /* Brand Backgrounds */
+  --brand-bg: #000000;
+  --nav-text: #FFFFFF;
 
   /* Semantic Colors */
-  --primary-btn: #1B4332;
-  --primary-btn-hover: #081C15;
-  --nav-text: #FFFFFF;
+  --primary-btn: #000000;
+  --primary-btn-hover: #333333;
 }
 
 /* Dark Theme Overrides */
 [data-theme="dark"] {
-  --primary-color: #52B788;
-  /* Light Green for Text Highlights */
-  --secondary-color: #74C69D;
-  --accent-color: #081C15;
-  --text-color: #E0E0E0;
-  /* Light gray text */
-  --bg-color: #121212;
-  /* Deep dark background */
-  --surface-color: #1E1E1E;
-  /* Slightly lighter dark for cards */
+  --primary-color: #ffffff;
+  --secondary-color: #888888;
+  --accent-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --bg-color: #0a0a0a;
+  --surface-color: rgba(255, 255, 255, 0.05);
 
-  /* Brand BG stays dark in dark mode or gets even darker */
-  --brand-bg: #0B251C;
+  /* Glassmorphism Dark */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
 
-  --primary-btn: #40916C;
-  /* Ensure buttons remain visible */
-  --primary-btn-hover: #52B788;
-  --nav-text: #FFFFFF;
-  /* Keep Nav text white as Brand BG is dark */
+  --brand-bg: #050505;
+  --primary-btn: #ffffff;
+  --primary-btn-hover: #cccccc;
+  --nav-text: #ffffff;
 }
 
 body {
@@ -56,11 +51,14 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background: var(--bg-color);
+  /* Subtile radial gradient for depth */
+  background: radial-gradient(circle at center, var(--surface-color) 0%, var(--bg-color) 100%);
+  background-attachment: fixed;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .negrita {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .cursiva {
@@ -70,9 +68,10 @@ body {
 h1,
 h2,
 h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-family: 'Lato', sans-serif; /* Clean sans-serif for premium look */
+  font-weight: 300; /* Light weight for elegance */
+  letter-spacing: 0.3rem; /* Wide spacing */
+  text-transform: uppercase;
 }
 
 /* Button Animations */

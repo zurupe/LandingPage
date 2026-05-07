@@ -1,158 +1,136 @@
 #sobre-mi {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  padding: 4rem 1.5rem;
   color: var(--text-color);
 }
 
 #sobre-mi h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
+  font-size: 1.5rem;
+  letter-spacing: 0.6rem;
+  text-transform: uppercase;
+  font-weight: 100;
+  margin-bottom: 4rem;
   text-align: center;
-  position: relative;
+  color: var(--primary-color);
+  animation: slideUp 1s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
 
+/* Remove the old underline */
 #sobre-mi h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: var(--secondary-color);
-  margin: 0.5rem auto 0;
-}
-
-#sobre-mi h3 {
-  font-size: 1.4rem;
-  margin: 1.8rem 0 1rem;
-  color: var(--primary-color);
-}
-
-#sobre-mi h4 {
-  font-size: 1.1rem;
-  margin: 1.2rem 0 0.5rem;
-  color: var(--primary-color);
-}
-
-#sobre-mi p {
-  margin-bottom: 1rem;
+  display: none;
 }
 
 #sobre-mi article {
-  margin-bottom: 2.5rem;
-  background: var(--surface-color);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  padding: 2.5rem;
+  border-radius: 0; /* Square for more formal look or 20px for modern? Let's go square-ish */
+  animation: slideUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+/* Staggered animation for articles */
+#sobre-mi article:nth-child(2) { animation-delay: 0.2s; }
+#sobre-mi article:nth-child(3) { animation-delay: 0.4s; }
+#sobre-mi article:nth-child(4) { animation-delay: 0.6s; }
+
+#sobre-mi h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#sobre-mi p {
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+  line-height: 1.8;
+  opacity: 0.9;
 }
 
 #sobre-mi ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
 }
 
 #sobre-mi li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 300;
+  position: relative;
 }
 
-#sobre-mi strong {
-  color: var(--primary-color);
+#sobre-mi li::before {
+  content: "—";
+  position: absolute;
+  left: -1.5rem;
+  color: var(--secondary-color);
+  opacity: 0.5;
 }
 
 #sobre-mi em {
   display: block;
   font-style: italic;
   text-align: center;
-  margin: 1rem 0;
-  margin: 1rem 0;
-  color: var(--text-color);
-  opacity: 0.8;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 300;
 }
 
+/* Hobbies Section */
 .hobbies-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .hobby {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hobby:hover {
   background: var(--surface-color);
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
 }
 
-/* Nuevos estilos específicos para la distribución solicitada */
-.hobby:first-child {
-  grid-column: 1;
+.hobby h4 {
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
-.hobby:nth-child(2) {
-  grid-column: 1;
+.hobby p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  opacity: 0.7;
 }
 
-.hobby:nth-child(3),
-.hobby:nth-child(4) {
-  grid-column: 1;
+/* Re-using animation from global or home if not available */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@media (min-width: 600px) {
-  .hobbies-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* Aquí hacemos que el hobby de videojuegos ocupe la primera columna */
-  .hobby:first-child {
-    grid-column: 1;
-    grid-row: 1 / span 3;
-    /* Ocupa 3 filas (altura equivalente a los otros 3 hobbies) */
-  }
-
-  /* Los otros 3 hobbies van a la segunda columna */
-  .hobby:nth-child(2),
-  .hobby:nth-child(3),
-  .hobby:nth-child(4) {
-    grid-column: 2;
-  }
-
-  /* Ajustamos el grid row para que queden uno debajo del otro */
-  .hobby:nth-child(2) {
-    grid-row: 1;
-  }
-
-  .hobby:nth-child(3) {
-    grid-row: 2;
-  }
-
-  .hobby:nth-child(4) {
-    grid-row: 3;
-  }
-
-  #sobre-mi {
-    padding: 2.5rem;
-  }
-}
-
-@media (min-width: 600px) {
-  .hobbies-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  #sobre-mi {
-    padding: 2.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  #sobre-mi {
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-
-  #sobre-mi ul {
-    list-style-position: inside;
-    padding-left: 0;
-  }
+@media (max-width: 768px) {
+  #sobre-mi { padding: 3rem 1rem; }
+  #sobre-mi article { padding: 1.5rem; }
+  #sobre-mi h2 { font-size: 1.2rem; letter-spacing: 0.4rem; }
 }

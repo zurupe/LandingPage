@@ -12,7 +12,5 @@ import { CommonModule } from '@angular/common';
 export class Nav {
   themeService = inject(ThemeService);
 
-  toggleTheme() {
-    this.themeService.toggleTheme();
-  }
+
 }

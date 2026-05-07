@@ -15,7 +15,7 @@ export class Sidebar {
 
   profileImage = computed(() =>
     this.themeService.darkMode()
-      ? 'assets/foto-personal-oscuro.jpg'
+      ? 'assets/img/PabloZurita_FotoFormal.jpg'
       : 'assets/foto-personal-claro.jpg'
   );
 
