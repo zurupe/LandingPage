@@ -2,11 +2,12 @@ import { Component, inject, computed, signal, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ProjectService } from '../project.service';
 import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -15,7 +16,7 @@ export class Home implements OnInit {
   private titleService = inject(Title);
   private metaService = inject(Meta);
 
-  profileImage = signal('/assets/img/PabloZurita_FotoFormal.jpg');
+  profileImage = signal('assets/img/PabloZurita_FotoFormal.jpg');
   
   startDate = signal(new Date('2022-06-01'));
 

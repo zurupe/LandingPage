@@ -40,6 +40,9 @@ jobs:
         # Reemplaza /LandingPage/ con el nombre de tu repositorio si es diferente
         run: npm run build -- --configuration production --base-href /LandingPage/
 
+      - name: Copy index.html to 404.html
+        run: cp dist/LandingPage/browser/index.html dist/LandingPage/browser/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

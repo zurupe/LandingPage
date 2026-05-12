@@ -1,17 +1,18 @@
 import { Component, computed, inject, signal, Signal } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
 export class Sidebar {
   private readonly router = inject(Router);
 
-  profileImage = signal('/assets/img/PabloZurita_FotoFormal.jpg');
+  profileImage = signal('assets/img/PabloZurita_FotoFormal.jpg');
 
   // Creamos una signal que guarda la URL actual
   currentUrl = signal(this.router.url);
