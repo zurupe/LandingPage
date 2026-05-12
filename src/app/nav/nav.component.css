@@ -11,11 +11,20 @@ header {
 }
 
 .titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   font-size: 1rem;
   letter-spacing: 0.4rem;
   text-transform: uppercase;
   font-weight: 100;
   color: var(--primary-color);
+}
+
+.nav-logo {
+  width: 32px;
+  height: 32px;
+  filter: invert(1) drop-shadow(0 2px 4px rgba(255,255,255,0.1));
 }
 
 nav {

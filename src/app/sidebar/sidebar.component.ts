@@ -1,5 +1,4 @@
 import { Component, computed, inject, signal, Signal } from '@angular/core';
-import { ThemeService } from '../theme.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
 
@@ -11,13 +10,8 @@ import { filter } from 'rxjs/internal/operators/filter';
 })
 export class Sidebar {
   private readonly router = inject(Router);
-  private themeService = inject(ThemeService);
 
-  profileImage = computed(() =>
-    this.themeService.darkMode()
-      ? 'assets/img/PabloZurita_FotoFormal.jpg'
-      : 'assets/foto-personal-claro.jpg'
-  );
+  profileImage = signal('/assets/img/PabloZurita_FotoFormal.jpg');
 
   // Creamos una signal que guarda la URL actual
   currentUrl = signal(this.router.url);

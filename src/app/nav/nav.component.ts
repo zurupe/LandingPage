@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ThemeService } from '../theme.service';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './nav.component.css'
 })
 export class Nav {
-  themeService = inject(ThemeService);
-
 
 }

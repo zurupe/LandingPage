@@ -1,47 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 
-  /* Premium Monochrome Palette (Light Theme) */
-  --primary-color: #000000;
-  --secondary-color: #444444;
-  --accent-color: #eeeeee;
-  --text-color: #1a1a1a;
-  --bg-color: #ffffff;
-  --surface-color: rgba(0, 0, 0, 0.02);
-  --white: #FFFFFF;
-
-  /* Glassmorphism Defaults */
-  --glass-bg: rgba(255, 255, 255, 0.02);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --glass-blur: blur(30px);
-
-  /* Brand Backgrounds */
-  --brand-bg: #000000;
-  --nav-text: #FFFFFF;
-
-  /* Semantic Colors */
-  --primary-btn: #000000;
-  --primary-btn-hover: #333333;
-}
-
-/* Dark Theme Overrides */
-[data-theme="dark"] {
+  /* Forced Dark Theme Palette */
   --primary-color: #ffffff;
   --secondary-color: #888888;
   --accent-color: #1a1a1a;
   --text-color: #e0e0e0;
   --bg-color: #0a0a0a;
   --surface-color: rgba(255, 255, 255, 0.05);
+  --white: #FFFFFF;
 
-  /* Glassmorphism Dark */
+  /* Glassmorphism Defaults (Optimized for Dark) */
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(30px);
 
+  /* Brand Backgrounds */
   --brand-bg: #050505;
+  --nav-text: #FFFFFF;
+
+  /* Semantic Colors */
   --primary-btn: #ffffff;
   --primary-btn-hover: #cccccc;
-  --nav-text: #ffffff;
 }
 
 body {
@@ -133,7 +114,6 @@ select {
 }
 
 /* Ensure placeholder text is visible but distinct */
-::placeholder {
-  color: var(--text-color);
-  opacity: 0.7;
+@media (max-width: 1024px) {
+  /* Mobile adjustments */
 }

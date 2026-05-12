@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Nav } from './nav';
+import { Nav } from './nav.component';
 
 describe('Nav', () => {
   let component: Nav;

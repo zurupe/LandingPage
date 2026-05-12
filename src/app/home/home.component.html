@@ -1,16 +1,47 @@
-<section class="hero d-flex align-items-center justify-content-center flex-column text-center">
-  <div class="container hero-container">
-    <img [ngSrc]="profileImage()" priority width="160" height="160" alt="Foto de Pablo Zurita"
-      class="rounded-circle profile-img mb-4">
+<section class="hero-centered">
+  <div class="hero-container">
+    <div class="profile-frame">
+      <img [ngSrc]="profileImage()" 
+           alt="Foto de perfil de Pablo Zurita" 
+           width="170" 
+           height="170" 
+           priority
+           class="profile-img-circle">
+    </div>
 
-    <h1 class="hero-name">Pablo Zurita</h1>
-    <h2 class="hero-title mb-3">Software Engineer</h2>
+    <div class="hero-content">
+      <h1 class="hero-name">PABLO ZURITA</h1>
+      <h2 class="hero-title">Software Engineer</h2>
+      <p class="hero-lead">
+        Construyendo soluciones digitales de alto impacto con arquitectura escalable.
+      </p>
 
-    <p class="hero-lead mb-5">Construyendo soluciones digitales de alto impacto con arquitectura escalable.</p>
+      <div class="hero-stats-centered">
+        <div class="stat-box">
+          <span class="stat-value">{{ projectCount() }}</span>
+          <span class="stat-desc">projects_count</span>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-box">
+          <span class="stat-value">{{ yearsOfExperience() }}</span>
+          <span class="stat-desc">exp_years</span>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-box">
+          <span class="stat-value">CLEAN</span>
+          <span class="stat-desc">architecture</span>
+        </div>
+      </div>
 
-    <div class="hero-actions">
-      <a href="/proyectos" class="btn btn-hero-primary">Ver Proyectos</a>
-      <a href="assets/cv-pablo-zurita.pdf" target="_blank" class="btn btn-hero-outline">Descargar CV</a>
+      <div class="hero-actions">
+        <a href="/proyectos" 
+           class="btn-hero-primary" 
+           aria-label="Ir a la sección de mis proyectos destacados">Ver Proyectos</a>
+        <a href="/assets/docs/cv-pablo-zurita.pdf" 
+           target="_blank" 
+           class="btn-hero-outline" 
+           aria-label="Descargar currículum vitae de Pablo Zurita en formato PDF">Descargar CV</a>
+      </div>
     </div>
   </div>
 </section>

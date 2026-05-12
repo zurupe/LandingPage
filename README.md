@@ -1,59 +1,74 @@
-# LandingPage
+# Pablo Zurita | Software Engineer Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+![Hero Banner](./src/assets/img/screenshots/home.png)
 
-## Development server
+## 🚀 Sobre el Proyecto
+Este proyecto es una **Landing Page Premium** diseñada para reflejar una identidad profesional de alto nivel en ingeniería de software. El diseño se aleja de las plantillas convencionales para adoptar una estética de "Arquitecto de Software", centrada en la precisión, la estructura y el rendimiento.
 
-To start a local development server, run:
+### 🎨 Temática: "Software Engineer Architect"
+*   **Estética Monocromática:** Uso sofisticado de negros, grises y blancos para un look atemporal y profesional.
+*   **Vibras de Ingeniería:** Inclusión de acentos de sintaxis (snake_case, comentarios de código, divisores técnicos) y tipografías monospaciadas.
+*   **Glassmorphism Pro:** Efectos de cristal esmerilado con desenfoque de fondo y bordes de alta definición.
+*   **Diseño Inmersivo:** Cuadrículas técnicas sutiles y animaciones cinemáticas de carga.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Stack Tecnológico
+*   **Framework:** [Angular 18+](https://angular.dev/) (Standalone Components).
+*   **Reactividad:** Angular Signals (Estado reactivo ultra-rápido).
+*   **Estilos:** Vanilla CSS con Arquitectura de Variables (Custom Properties).
+*   **Animaciones:** CSS Animations & Transitions (Cubic-bezier curves).
+*   **SEO:** Gestión dinámica de Title y Meta tags por componente.
+*   **Rendimiento:** Implementación de `NgOptimizedImage` para LCP optimizado.
+*   **Servicios:** Centralización de datos vía `ProjectService`.
+*   **Contacto:** Integración directa con [EmailJS](https://www.emailjs.com/).
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ✨ Características Principales
+*   **Contador de Experiencia Dinámico:** Cálculo en tiempo real de años de trayectoria basado en fecha de inicio.
+*   **Catálogo de Proyectos Reactivo:** Número de proyectos sincronizado automáticamente con el servicio de datos.
+*   **Sidebar Flotante:** Navegación minimalista estilo "glass-box" con estados de hover avanzados.
+*   **Totalmente Responsivo:** Adaptabilidad perfecta desde monitores ultra-wide hasta dispositivos móviles.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📸 Galería del Proyecto
 
-```bash
-ng generate --help
-```
+### Home (Engineer Vibes)
+![Home Section](./src/assets/img/screenshots/home.png)
 
-## Building
+### Proyectos Dinámicos
+![Projects Section](./src/assets/img/screenshots/projects.png)
 
-To build the project run:
+### Perfil Profesional (Sobre Mí)
+![About Me Section](./src/assets/img/screenshots/about.png)
 
-```bash
-ng build
-```
+### Contacto e Interacción
+![Contact Section](./src/assets/img/screenshots/contact.png)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## ⚙️ Instalación y Desarrollo
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://github.com/tu-usuario/LandingPage.git
+    ```
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
+3.  **Ejecutar en modo desarrollo:**
+    ```bash
+    ng serve
+    ```
+    Navega a `http://localhost:4200/`.
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 📄 Licencia
+Este proyecto es de uso personal y educativo.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+*Desarrollado con por Pablo Zurita*

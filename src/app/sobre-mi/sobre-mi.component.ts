@@ -1,4 +1,5 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, inject, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 export interface Section {
   id: string;
@@ -19,11 +20,20 @@ export interface Interest {
 
 @Component({
   selector: 'app-sobre-mi',
+  standalone: true,
   imports: [],
   templateUrl: './sobre-mi.component.html',
   styleUrl: './sobre-mi.component.css'
 })
-export class SobreMi {
+export class SobreMi implements OnInit {
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Sobre Mí | Pablo Zurita');
+    this.metaService.updateTag({ name: 'description', content: 'Conoce más sobre Pablo Zurita, Ingeniero de Software en formación, apasionado por la tecnología, la arquitectura de hardware y el desarrollo de soluciones innovadoras.' });
+  }
+
   birthDate = new Date(2003, 11, 25); // 25 de diciembre de 2003
 
   age = computed(() => {
