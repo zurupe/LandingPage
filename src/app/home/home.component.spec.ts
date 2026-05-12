@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Home } from './home.component';
 import { ProjectService } from '../project.service';
 
+import { provideRouter } from '@angular/router';
+
 describe('HomeComponent', () => {
   let component: Home;
   let fixture: ComponentFixture<Home>;
@@ -9,7 +11,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Home],
-      providers: [ProjectService]
+      providers: [ProjectService, provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Home);
