@@ -10,6 +10,8 @@ import { filter } from 'rxjs/operators';
 import { fadeAnimation } from './route-animations';
 import { ChildrenOutletContexts } from '@angular/router';
 
+import { UiService } from './ui.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,6 +23,7 @@ import { ChildrenOutletContexts } from '@angular/router';
 export class App {
   private readonly router = inject(Router);
   private contexts = inject(ChildrenOutletContexts);
+  uiService = inject(UiService);
 
   // Creamos una signal que guarda la URL actual
   currentUrl = signal(this.router.url);

@@ -1,10 +1,20 @@
-<aside class="sidebar">
+<aside class="sidebar" [class.open]="uiService.isSidebarOpen()">
+  <button class="close-btn" (click)="uiService.closeSidebar()" aria-label="Close menu">
+    <i class="fas fa-times"></i>
+  </button>
   <img [src]="profileImage()" alt="Foto personal" class="foto-perfil" />
   <h2 class="nombre">Pablo Zurita</h2>
   <p class="subtitulo">Estudiante de Ingeniería de Software</p>
-  @if (showContactBtn()) {
-  <a routerLink="/contacto" class="btn-contacto">Contactame</a>
-  }
+  <a [routerLink]="contactBtnLink()" class="btn-contacto" (click)="uiService.closeSidebar()">{{ contactBtnLabel() }}</a>
+
+  <nav class="mobile-nav">
+    <ul class="mobile-ul">
+      <li><a routerLink="/" (click)="uiService.closeSidebar()">Inicio</a></li>
+      <li><a routerLink="/sobre-mi" (click)="uiService.closeSidebar()">Sobre Mí</a></li>
+      <li><a routerLink="/proyectos" (click)="uiService.closeSidebar()">Proyectos</a></li>
+    </ul>
+  </nav>
+
   <div class="social-icons">
     <a href="https://github.com/zurupe" target="_blank" aria-label="GitHub">
       <i class="fab fa-github"></i>
@@ -16,8 +26,8 @@
     <a href="https://hub.docker.com/u/zurupe" target="_blank" aria-label="Docker">
       <i class="fab fa-docker"></i>
     </a>
-
   </div>
+
   <br>
 
   <small class="frase">"El conocimiento se construye línea a línea, como un buen código"</small>

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { UiService } from '../ui.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,5 +11,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav.component.css'
 })
 export class Nav {
-
+  uiService = inject(UiService);
 }

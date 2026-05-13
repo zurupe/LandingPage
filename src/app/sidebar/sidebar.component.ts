@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal, Signal } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
+import { UiService } from '../ui.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,6 +12,7 @@ import { filter } from 'rxjs/internal/operators/filter';
 })
 export class Sidebar {
   private readonly router = inject(Router);
+  uiService = inject(UiService);
 
   profileImage = signal('assets/img/PabloZurita_FotoFormal.jpg');
 
@@ -25,5 +27,7 @@ export class Sidebar {
       this.currentUrl.set(event.urlAfterRedirects);
     });
   }
-  showContactBtn = computed(() => this.currentUrl() !== '/contacto');
+  isContactPage = computed(() => this.currentUrl() === '/contactos' || this.currentUrl() === '/contacto');
+  contactBtnLabel = computed(() => this.isContactPage() ? 'Volver al Inicio' : 'Contáctame');
+  contactBtnLink = computed(() => this.isContactPage() ? '/' : '/contacto');
 }

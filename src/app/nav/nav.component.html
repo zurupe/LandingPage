@@ -1,7 +1,10 @@
 <header>
   <nav>
     <h1 class="titulo">
-      <img src="favicon.ico" alt="Logo" class="nav-logo">
+      <button class="menu-toggle" (click)="uiService.toggleSidebar()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <img src="assets/img/logo.png" alt="Logo" class="nav-logo" onerror="this.src='favicon.ico'">
       ZhuruServices
     </h1>
     <ul>
