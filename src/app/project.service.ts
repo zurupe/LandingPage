@@ -25,6 +25,12 @@ export class ProjectService {
       technologies: ['HTML', 'CSS', 'JavaScript']
     },
     {
+      title: 'MC Servers',
+      description: 'Pagina para mostrar tus servidores de minecraft de forma publica o privada, su uso personal es gratuito',
+      image: './assets/img/mcservers.png',
+      technologies: ['Vite', 'javascript', 'html', 'css', 'tailwindcss', 'sqlite', 'docker']
+    },
+    {
       title: 'Próximamente...',
       description: 'Una aplicación móvil y de escritorio con herramientas avanzadas para optimizar la experiencia en Minecraft.',
       image: './assets/img/minecraft.png',
