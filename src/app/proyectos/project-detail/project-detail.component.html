@@ -1,0 +1,95 @@
+<section class="proyecto-detalle" *ngIf="project() as project">
+  <!-- Banner -->
+  <div class="banner-proyecto">
+    <img [ngSrc]="project.bannerImage" 
+         [alt]="project.title" 
+         width="1200" 
+         height="400"
+         class="banner-img">
+    <div class="banner-overlay">
+      <h1 class="titulo-proyecto">{{ project.title }}</h1>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="contenedor-detalle">
+    <!-- Descripción -->
+    <div class="seccion-descripcion">
+      <h2>Descripción</h2>
+      <p>{{ project.fullDescription }}</p>
+    </div>
+
+    <!-- Tecnologías -->
+    <div class="seccion-tecnologias">
+      <h2>Tecnologías Utilizadas</h2>
+      <div class="lista-tecnologias">
+        @for (tech of project.technologies; track tech) {
+        <span class="badge-tecnologia">{{ tech }}</span>
+        }
+      </div>
+    </div>
+
+    <!-- Enlaces -->
+    <div class="seccion-enlaces">
+      @if (project.repoUrl) {
+      <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer" class="btn-repo">
+        <i class="fa-brands fa-github"></i>
+        Ver Repositorio
+      </a>
+      }
+      <a routerLink="/proyectos" class="btn-volver">
+        <i class="fas fa-arrow-left"></i>
+        Volver a Proyectos
+      </a>
+    </div>
+
+    <!-- Galería -->
+    <div class="seccion-galeria">
+      <h2>Galería</h2>
+      <div class="grid-galeria">
+        @for (image of project.galleryImages; let i = $index; track i) {
+        <div class="item-galeria" (click)="openLightbox(i)">
+          <img [ngSrc]="image" 
+               [alt]="'Screenshot ' + (i + 1) + ' de ' + project.title" 
+               width="400" 
+               height="300"
+               (error)="onImageError($event)"
+               class="img-galeria">
+          <div class="overlay-galeria">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  @if (lightboxOpen()) {
+  <div class="lightbox" (click)="closeLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <button class="btn-close" (click)="closeLightbox()" aria-label="Cerrar">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <img [ngSrc]="project.galleryImages[selectedImageIndex()]" 
+           [alt]="'Screenshot ' + (selectedImageIndex() + 1)" 
+           width="1000" 
+           height="700"
+           (error)="onImageError($event)"
+           class="lightbox-img">
+
+      <button class="btn-nav prev" (click)="prevImage()" aria-label="Anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="btn-nav next" (click)="nextImage()" aria-label="Siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div class="lightbox-counter">
+        {{ selectedImageIndex() + 1 }} / {{ project.galleryImages.length }}
+      </div>
+    </div>
+  </div>
+  }
+</section>

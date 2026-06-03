@@ -1,8 +1,8 @@
 <section id="proyectos" class="seccion-proyectos">
   <h2 class="titulo-seccion">Mis Proyectos Destacados</h2>
   <div class="contenedor-proyectos">
-    @for (project of projects(); track project.title) {
-    <div class="tarjeta-proyecto">
+    @for (project of projects(); track project.id) {
+    <div class="tarjeta-proyecto" [routerLink]="['/proyectos', project.slug]">
       <div class="imagen-proyecto">
         <img [ngSrc]="project.image" 
              [alt]="'Captura de ' + project.title" 
@@ -19,6 +19,19 @@
           @for (tech of project.technologies; track tech) {
           <span class="etiqueta-tecnologia">{{ tech }}</span>
           }
+        </div>
+        <div class="enlaces-proyecto">
+          <a
+            [href]="project.repoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-repo btn-animate"
+            [attr.aria-label]="'Ver código fuente de ' + project.title"
+          >
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <span class="texto-boton">Ver repositorio</span>
+            <span class="icono-repo" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </div>

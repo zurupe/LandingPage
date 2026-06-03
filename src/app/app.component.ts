@@ -1,6 +1,6 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { Component, computed, inject, signal } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { Router, NavigationEnd, NavigationStart, RouterOutlet } from '@angular/router';
 import { Nav } from './nav/nav.component';
 import { Footer } from './footer/footer.component';
 import { Home } from './home/home.component';
@@ -22,25 +22,76 @@ import { UiService } from './ui.service';
 })
 export class App {
   private readonly router = inject(Router);
+  private readonly viewportScroller = inject(ViewportScroller);
   private contexts = inject(ChildrenOutletContexts);
   uiService = inject(UiService);
+  private scrollPositions = new Map<string, [number, number]>();
 
   // Creamos una signal que guarda la URL actual
   currentUrl = signal(this.router.url);
 
   constructor() {
+    const mediaQuery = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)') : null;
+    if (mediaQuery) {
+      this.isMobile.set(mediaQuery.matches);
+      mediaQuery.addEventListener('change', (event) => {
+        this.isMobile.set(event.matches);
+      });
+    }
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationStart)
+    ).subscribe(() => {
+      this.scrollPositions.set(this.currentUrl(), [window.scrollX, window.scrollY]);
+    });
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.currentUrl.set(event.urlAfterRedirects);
+      const savedPosition = this.scrollPositions.get(event.urlAfterRedirects);
+      if (savedPosition) {
+        this.viewportScroller.scrollToPosition(savedPosition);
+      } else {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      }
     });
   }
 
+  isMobile = signal(false);
+
   // Computed para decidir cuándo mostrar el sidebar
   showSidebar = computed(() => this.currentUrl() !== '/');
+  sidebarMiniEnabled = computed(() => this.uiService.isSidebarMini() && !this.isMobile());
+  isProjectDetailPage = computed(() => this.currentUrl().startsWith('/proyectos/'));
 
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+  }
+
+  onLayoutClick(event: MouseEvent): void {
+    const path = event.composedPath?.() ?? [];
+    const clickedInsideSidebar = (path as EventTarget[]).some(
+      item => item instanceof HTMLElement && item.classList.contains('sidebar')
+    );
+
+    if (clickedInsideSidebar) {
+      return;
+    }
+
+    if (this.uiService.isSidebarOpen()) {
+      this.uiService.closeSidebar();
+      return;
+    }
+
+    if (this.isProjectDetailPage() && !this.isMobile() && !this.uiService.isSidebarMini()) {
+      this.uiService.setSidebarMini(true);
+      return;
+    }
+
+    if (!this.isProjectDetailPage() && this.uiService.isSidebarMini() && !this.isMobile()) {
+      this.uiService.setSidebarMini(false);
+    }
   }
 }
 

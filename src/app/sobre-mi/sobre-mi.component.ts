@@ -1,5 +1,6 @@
 import { Component, computed, inject, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 export interface Section {
   id: string;
@@ -21,7 +22,7 @@ export interface Interest {
 @Component({
   selector: 'app-sobre-mi',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './sobre-mi.component.html',
   styleUrl: './sobre-mi.component.css'
 })

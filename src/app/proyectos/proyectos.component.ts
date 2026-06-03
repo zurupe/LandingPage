@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ProjectService } from '../project.service';
-import { NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-proyectos',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, RouterLink],
   templateUrl: './proyectos.component.html',
   styleUrl: './proyectos.component.css'
 })

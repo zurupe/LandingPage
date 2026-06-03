@@ -43,10 +43,15 @@
 .tarjeta-proyecto:nth-child(2) { animation-delay: 0.4s; }
 .tarjeta-proyecto:nth-child(3) { animation-delay: 0.6s; }
 
+.tarjeta-proyecto {
+  cursor: pointer;
+}
+
 .tarjeta-proyecto:hover {
   transform: translateY(-10px);
   border-color: var(--primary-color);
   background: var(--surface-color);
+  box-shadow: 0 20px 40px rgba(106, 187, 166, 0.2);
 }
 
 .imagen-proyecto {
@@ -110,6 +115,86 @@
   text-transform: uppercase;
   font-weight: 600;
   transition: all 0.3s ease;
+}
+
+.enlaces-proyecto {
+  margin-top: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.boton-repo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.17);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease, border-color 0.28s ease;
+}
+
+.boton-repo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 65%);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.boton-repo:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.22);
+}
+
+.boton-repo:hover .icono-repo {
+  transform: translateX(2px) scale(1.05);
+}
+
+.icono-repo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--primary-color);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.texto-boton {
+  position: relative;
+  z-index: 1;
+}
+
+.detalle-repo {
+  position: relative;
+  z-index: 1;
+  font-size: 0.72rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+}
+
+@media (max-width: 600px) {
+  .boton-repo {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .tarjeta-proyecto:hover .etiqueta-tecnologia {

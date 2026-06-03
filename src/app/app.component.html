@@ -1,7 +1,7 @@
 <app-nav />
 
-<div class="layout" [class.sidebar-open]="uiService.isSidebarOpen()" [class.home-page]="currentUrl() === '/'">
-  <div class="backdrop" (click)="uiService.closeSidebar()"></div>
+<div class="layout" [class.sidebar-open]="uiService.isSidebarOpen()" [class.home-page]="currentUrl() === '/'" [class.sidebar-mini]="sidebarMiniEnabled()" (click)="onLayoutClick($event)">
+  <div class="backdrop" (click)="uiService.closeSidebar(); $event.stopPropagation()"></div>
   <app-sidebar />
   <main class="contenido">
     <main [@routeAnimations]="getRouteAnimationData()">

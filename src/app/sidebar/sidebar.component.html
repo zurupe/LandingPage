@@ -1,11 +1,52 @@
-<aside class="sidebar" [class.open]="uiService.isSidebarOpen()">
+<aside class="sidebar" [class.open]="uiService.isSidebarOpen()" [class.mini]="sidebarMiniEnabled()" (click)="onSidebarClick($event)">
   <button class="close-btn" (click)="uiService.closeSidebar()" aria-label="Close menu">
     <i class="fas fa-times"></i>
   </button>
-  <img [src]="profileImage()" alt="Foto personal" class="foto-perfil" />
-  <h2 class="nombre">Pablo Zurita</h2>
-  <p class="subtitulo">Estudiante de Ingeniería de Software</p>
-  <a [routerLink]="contactBtnLink()" class="btn-contacto" (click)="uiService.closeSidebar()">{{ contactBtnLabel() }}</a>
+  @if (!sidebarMiniEnabled()) {
+    <img [src]="profileImage()" alt="Foto personal" class="foto-perfil" />
+    <h2 class="nombre">Pablo Zurita</h2>
+    <p class="subtitulo">Estudiante de Ingeniería de Software</p>
+    <a [routerLink]="contactBtnLink()" class="btn-contacto" (click)="uiService.closeSidebar()">{{ contactBtnLabel() }}</a>
+
+    <div class="social-icons">
+      <a href="https://github.com/zurupe" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/pablo-zurita-rosero-4298163b9/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://hub.docker.com/u/zurupe" target="_blank" aria-label="Docker">
+        <i class="fab fa-docker"></i>
+      </a>
+    </div>
+
+    <br>
+
+    <small class="frase">"El conocimiento se construye línea a línea, como un buen código"</small>
+    <br>
+  }
+
+  @if (sidebarMiniEnabled()) {
+    <div class="mini-sidebar" (click)="onSidebarClick($event)">
+      <div class="mini-avatar">
+        <img [src]="profileImage()" alt="Foto personal" />
+      </div>
+      <button class="mini-contact" type="button" aria-label="Contáctame">
+        <span>Contáctame</span>
+      </button>
+      <div class="mini-social-icons">
+        <a href="https://github.com/zurupe" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/pablo-zurita-rosero-4298163b9/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="https://hub.docker.com/u/zurupe" target="_blank" aria-label="Docker">
+          <i class="fab fa-docker" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  }
 
   <nav class="mobile-nav">
     <ul class="mobile-ul">
@@ -14,23 +55,5 @@
       <li><a routerLink="/proyectos" (click)="uiService.closeSidebar()">Proyectos</a></li>
     </ul>
   </nav>
-
-  <div class="social-icons">
-    <a href="https://github.com/zurupe" target="_blank" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/pablo-zurita-rosero-4298163b9/" target="_blank" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <!-- Docker -->
-    <a href="https://hub.docker.com/u/zurupe" target="_blank" aria-label="Docker">
-      <i class="fab fa-docker"></i>
-    </a>
-  </div>
-
-  <br>
-
-  <small class="frase">"El conocimiento se construye línea a línea, como un buen código"</small>
-  <br>
 </aside>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
