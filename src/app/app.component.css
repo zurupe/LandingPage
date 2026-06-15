@@ -6,6 +6,7 @@
 
 .layout.sidebar-mini {
   margin-left: 70px;
+  transition: margin-left 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .layout.sidebar-mini .contenido {

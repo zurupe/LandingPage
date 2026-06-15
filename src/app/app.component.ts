@@ -31,14 +31,6 @@ export class App {
   currentUrl = signal(this.router.url);
 
   constructor() {
-    const mediaQuery = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)') : null;
-    if (mediaQuery) {
-      this.isMobile.set(mediaQuery.matches);
-      mediaQuery.addEventListener('change', (event) => {
-        this.isMobile.set(event.matches);
-      });
-    }
-
     this.router.events.pipe(
       filter(event => event instanceof NavigationStart)
     ).subscribe(() => {
@@ -58,11 +50,7 @@ export class App {
     });
   }
 
-  isMobile = signal(false);
-
-  // Computed para decidir cuándo mostrar el sidebar
-  showSidebar = computed(() => this.currentUrl() !== '/');
-  sidebarMiniEnabled = computed(() => this.uiService.isSidebarMini() && !this.isMobile());
+  sidebarMiniEnabled = computed(() => this.uiService.isSidebarMini() && !this.uiService.isMobile());
   isProjectDetailPage = computed(() => this.currentUrl().startsWith('/proyectos/'));
 
   getRouteAnimationData() {
@@ -84,12 +72,12 @@ export class App {
       return;
     }
 
-    if (this.isProjectDetailPage() && !this.isMobile() && !this.uiService.isSidebarMini()) {
+    if (this.isProjectDetailPage() && !this.uiService.isMobile() && !this.uiService.isSidebarMini()) {
       this.uiService.setSidebarMini(true);
       return;
     }
 
-    if (!this.isProjectDetailPage() && this.uiService.isSidebarMini() && !this.isMobile()) {
+    if (!this.isProjectDetailPage() && this.uiService.isSidebarMini() && !this.uiService.isMobile()) {
       this.uiService.setSidebarMini(false);
     }
   }

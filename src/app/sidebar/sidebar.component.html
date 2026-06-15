@@ -9,13 +9,13 @@
     <a [routerLink]="contactBtnLink()" class="btn-contacto" (click)="uiService.closeSidebar()">{{ contactBtnLabel() }}</a>
 
     <div class="social-icons">
-      <a href="https://github.com/zurupe" target="_blank" aria-label="GitHub">
+      <a href="https://github.com/zurupe" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <i class="fab fa-github"></i>
       </a>
-      <a href="https://www.linkedin.com/in/pablo-zurita-rosero-4298163b9/" target="_blank" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/pablo-zurita-rosero-4298163b9/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://hub.docker.com/u/zurupe" target="_blank" aria-label="Docker">
+      <a href="https://hub.docker.com/u/zurupe" target="_blank" rel="noopener noreferrer" aria-label="Docker">
         <i class="fab fa-docker"></i>
       </a>
     </div>
@@ -27,21 +27,26 @@
   }
 
   @if (sidebarMiniEnabled()) {
-    <div class="mini-sidebar" (click)="onSidebarClick($event)">
+    <div class="mini-sidebar">
       <div class="mini-avatar">
         <img [src]="profileImage()" alt="Foto personal" />
       </div>
-      <button class="mini-contact" type="button" aria-label="Contáctame">
-        <span>Contáctame</span>
-      </button>
+      <a
+        [routerLink]="contactBtnLink()"
+        class="mini-contact"
+        [attr.aria-label]="contactBtnLabel()"
+        (click)="uiService.closeSidebar()"
+      >
+        <span>{{ contactBtnLabel() }}</span>
+      </a>
       <div class="mini-social-icons">
-        <a href="https://github.com/zurupe" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/zurupe" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fab fa-github" aria-hidden="true"></i>
         </a>
-        <a href="https://www.linkedin.com/in/pablo-zurita-rosero-4298163b9/" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/pablo-zurita-rosero-4298163b9/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
-        <a href="https://hub.docker.com/u/zurupe" target="_blank" aria-label="Docker">
+        <a href="https://hub.docker.com/u/zurupe" target="_blank" rel="noopener noreferrer" aria-label="Docker">
           <i class="fab fa-docker" aria-hidden="true"></i>
         </a>
       </div>
@@ -56,4 +61,3 @@
     </ul>
   </nav>
 </aside>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

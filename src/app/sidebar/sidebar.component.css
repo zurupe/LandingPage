@@ -111,10 +111,12 @@
   top: calc(80px + 1rem);
   bottom: 1rem;
   margin: 0;
-  border-radius: 0 24px 24px 0;
-  background: rgba(11, 16, 26, 0.92);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 32px 32px 0;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-left: none;
   padding: 1.3rem 0.5rem;
   align-items: center;
   justify-content: space-between;
@@ -122,8 +124,8 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   z-index: 1100;
-  box-shadow: 8px 18px 36px rgba(0, 0, 0, 0.24);
-  transition: width 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sidebar.mini::-webkit-scrollbar {
@@ -155,13 +157,20 @@
 .sidebar.mini .mini-avatar {
   width: 54px;
   height: 54px;
-  border: 1px solid rgba(106, 187, 166, 0.24);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  background: var(--surface-color);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.sidebar.mini .mini-avatar:hover {
+  transform: scale(1.05);
+  border-color: var(--primary-color);
 }
 
 .sidebar.mini .mini-avatar img {
@@ -177,23 +186,26 @@
   padding: 0.75rem 0.85rem;
   min-height: 110px;
   width: 54px;
-  border: 1px solid rgba(106, 187, 166, 0.25);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  background: var(--surface-color);
   color: var(--primary-color);
-  border-radius: 26px;
-  letter-spacing: 0.28rem;
-  font-size: 0.73rem;
-  font-weight: 700;
+  border-radius: 24px;
+  letter-spacing: 0.2rem;
+  font-size: 0.65rem;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar.mini .mini-contact:hover {
-  background: rgba(106, 187, 166, 0.18);
-  border-color: rgba(106, 187, 166, 0.45);
+  background: transparent;
+  border-color: var(--primary-color);
+  letter-spacing: 0.28rem;
 }
 
 .sidebar.mini .mini-social-icons {
@@ -211,16 +223,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
   color: var(--primary-color);
-  transition: all 0.3s ease;
+  opacity: 0.4;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sidebar.mini .mini-social-icons a:hover {
-  transform: translateX(2px);
-  background: rgba(106, 187, 166, 0.18);
+  opacity: 1;
+  transform: translateY(-3px) scale(1.1);
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .social-icons {
@@ -375,42 +390,6 @@
   padding-left: 20px;
 }
 
-
-/* Botón Autor en modo mini */
-.btn-autor {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  width: 50px;
-  height: 50px;
-  background: var(--primary-color);
-  border: none;
-  border-radius: 50%;
-  color: var(--dark-bg);
-  font-weight: 700;
-  font-size: 0.7rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 4px 12px rgba(106, 187, 166, 0.3);
-}
-
-.btn-autor:hover {
-  transform: translateX(-50%) scale(1.1);
-  box-shadow: 0 6px 16px rgba(106, 187, 166, 0.4);
-}
-
-.autor-text {
-  display: none;
-}
-
-.btn-autor i {
-  font-size: 1.2rem;
-}
 
 @media (max-width: 768px) {
   .sidebar.mini {
